@@ -58,7 +58,7 @@ final class GameListViewModel: GameListViewModelProtocol {
             gameList = cachedData
         } else {
             let data = try await fetchGameList()
-            persistenceController.saveGames(games: data)
+            await persistenceController.saveGames(games: data)
         }
     }
 }

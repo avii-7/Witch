@@ -7,17 +7,17 @@
 
 import CoreData
 
-protocol CoreDataPersistenceProtocol {
-    func saveGames(games: GameList?)
+protocol CoreDataPersistenceProtocol: Sendable {
+    func saveGames(games: GameList?) async
     func fetchGameList() async -> [Game]?
 }
 
-final class PersistenceController: CoreDataPersistenceProtocol {
+actor PersistenceController: CoreDataPersistenceProtocol {
     static let shared = PersistenceController()
     
     let container: NSPersistentContainer
-    var mainContext: NSManagedObjectContext
-    var backgroundContext: NSManagedObjectContext
+    let mainContext: NSManagedObjectContext
+    let backgroundContext: NSManagedObjectContext
     
     init(inMemory: Bool = false) {
         

@@ -8,7 +8,8 @@
 import XCTest
 @testable import Witch
 
-final class MockPersistenceController: CoreDataPersistenceProtocol {
+
+final class MockPersistenceController: CoreDataPersistenceProtocol, @unchecked Sendable {
     var cachedGames: [Game]?
     var saveCalled = false
 

@@ -9,7 +9,7 @@ import XCTest
 @testable import Witch
 @testable import Network
 
-final class MockNetworking: NetworkingProtocol {
+final class MockNetworking: NetworkingProtocol, @unchecked Sendable {
     
     var resultToReturn: GameList?
     
