@@ -18,7 +18,7 @@ struct SimilarGamesView: View {
             HStack {
                 ForEach(games, id: \.id) { game in
                     NavigationLink {
-                        GameDetailView(viewModel: GameDetailViewModel(service: service, game: game))
+                        GameDetailView(viewModel: GameDetailViewModel(service: service, game: game, urlOpener: UIApplication.shared))
                             .removeNavigationBackButtonTitle()
                     } label: {
                         if let urlString = game.cover?.url {

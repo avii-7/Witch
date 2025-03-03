@@ -9,7 +9,7 @@ import SwiftUI
 
 protocol URLOpener {
     func canOpenURL(_ url: URL) -> Bool
-    func open(_ url: URL)
+    @MainActor func open(_ url: URL)
 }
 
 extension UIApplication: URLOpener {

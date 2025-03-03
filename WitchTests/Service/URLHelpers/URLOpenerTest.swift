@@ -27,7 +27,8 @@ final class URLOpenerTest: XCTestCase {
         game = nil
         super.tearDown()
     }
-
+    
+    @MainActor
     func test_canOpenURL_true() {
         
         mockOpener.canOpenURLResult = true
@@ -39,6 +40,7 @@ final class URLOpenerTest: XCTestCase {
         XCTAssertTrue(mockOpener.openURLCalled)
     }
     
+    @MainActor
     func test_canOpenURL_false() {
         
         mockOpener.canOpenURLResult = false

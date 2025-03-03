@@ -52,6 +52,7 @@ final class GameDetailViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.gameList.isEmpty)
     }
     
+    @MainActor
     func test_openUrl_true() {
         
         mockURLOpener.canOpenURLResult = true
@@ -60,6 +61,7 @@ final class GameDetailViewModelTests: XCTestCase {
         XCTAssertTrue(mockURLOpener.openURLCalled)
     }
     
+    @MainActor
     func test_openUrl_false() {
         
         mockURLOpener.canOpenURLResult = false
@@ -68,7 +70,7 @@ final class GameDetailViewModelTests: XCTestCase {
         XCTAssertFalse(mockURLOpener.openURLCalled)
     }
     
-    
+    @MainActor
     func test_openUrl_nil() {
         
         viewModel.openURL(urlString: similarGames.first?.url)

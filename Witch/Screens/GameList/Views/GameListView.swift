@@ -27,7 +27,7 @@ struct GameListView: View {
                             .cornerRadius(20)
                             .frame(height: 160)
                             .navigationLink {
-                                GameDetailView(viewModel: GameDetailViewModel(service: viewModel.service, game: game))
+                                GameDetailView(viewModel: GameDetailViewModel(service: viewModel.service, game: game, urlOpener: UIApplication.shared))
                                     .removeNavigationBackButtonTitle()
                             }
                     }

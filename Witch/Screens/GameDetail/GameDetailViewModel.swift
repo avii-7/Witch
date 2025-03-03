@@ -35,7 +35,7 @@ final class GameDetailViewModel {
     var showSummary = false
     var showMore = false
     
-    init(service: GameServiceProtocol, game: Game, urlOpener: URLOpener = UIApplication.shared, deeplinkManager: DeeplinkManagerProtocol = DeeplinkManager()) {
+    init(service: GameServiceProtocol, game: Game, urlOpener: URLOpener, deeplinkManager: DeeplinkManagerProtocol = DeeplinkManager()) {
         self.service = service
         self.urlOpener = urlOpener
         self.game = game
@@ -63,6 +63,7 @@ final class GameDetailViewModel {
         }
     }
 
+    @MainActor
     func openURL(urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else { return }                
         if urlOpener.canOpenURL(url) {
