@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol RequestExecutorProtocol {
+protocol RequestExecutorProtocol: Sendable {
     var session: URLSession { get }
     func execute(_ request: URLRequest) async throws -> RequestSuccess
 }
 
 final class RequestExecutor: RequestExecutorProtocol {
-    var session: URLSession
+    let session: URLSession
     
     init(session: URLSession) {
         self.session = session

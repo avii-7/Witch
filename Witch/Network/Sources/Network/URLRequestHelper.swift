@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol URLRequestHelperProtocol {
+protocol URLRequestHelperProtocol: Sendable {
     func makeURLRequest(requestable: URLRequestable) throws -> URLRequest
 }
 

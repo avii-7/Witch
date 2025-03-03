@@ -6,7 +6,7 @@
 //
 import Foundation
 
-public protocol NetworkingProtocol {
+public protocol NetworkingProtocol: Sendable {
     func request<T:Decodable>(requestable: URLRequestable, responseType: T.Type) async throws (NetworkError) -> T
 }
 

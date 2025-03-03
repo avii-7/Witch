@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ResponseParserProtocol {
+protocol ResponseParserProtocol: Sendable {
     func parseResponse<T: Decodable>(data: Data, responseType: T.Type) throws (NetworkError) -> T
 }
 
