@@ -35,6 +35,7 @@ final class GameListViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func test_fetchGameList_success() async throws {
         
         mockService.gameListResult = games
@@ -44,6 +45,7 @@ final class GameListViewModelTests: XCTestCase {
         XCTAssertEqual(result?.first?.name, "Game")
     }
     
+    @MainActor
     func test_fetchGameList_fail() async throws {
         
         mockService.gameListResult = nil
@@ -53,6 +55,7 @@ final class GameListViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.gameList.isEmpty)
     }
     
+    @MainActor
     func test_getGameData_getFromCache() async throws {
         
         mockPersistenceController.cachedGames = cachedGames
@@ -63,6 +66,7 @@ final class GameListViewModelTests: XCTestCase {
         XCTAssertFalse(mockPersistenceController.saveCalled)
     }
     
+    @MainActor
     func test_getGameData_saveToCache() async throws {
         
         mockService.gameListResult = games
@@ -74,6 +78,7 @@ final class GameListViewModelTests: XCTestCase {
         XCTAssertTrue(mockPersistenceController.saveCalled)
     }
     
+    @MainActor
     func test_getGameData_saveToCache_whenFetchGamesError() async throws {
         
         mockService.gameListResult = nil

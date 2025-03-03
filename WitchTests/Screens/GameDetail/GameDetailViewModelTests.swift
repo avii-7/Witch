@@ -34,6 +34,7 @@ final class GameDetailViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func test_fetchSimilarGameList_success() async throws {
         
         mockService.similarGameListResult = similarGames
@@ -43,7 +44,7 @@ final class GameDetailViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.gameList.first?.name, "Similar")
     }
     
-    
+    @MainActor
     func test_fetchSimilarGameList_fail() async throws {
         
         mockService.similarGameListResult = nil

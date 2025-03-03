@@ -9,7 +9,7 @@ import XCTest
 @testable import Witch
 @testable import Network
 
-class MockGameService: GameServiceProtocol {
+class MockGameService: GameServiceProtocol, @unchecked Sendable {
     
     var gameListResult: GameList?
     var similarGameListResult: GameList?
