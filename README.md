@@ -1,6 +1,6 @@
 # Witch
 
-![](https://github.com/glnygl/Witch/blob/main/AppGif.gif)  
+![](https://github.com/avii-7/Witch/blob/main/AppGif.gif)  
 
 ## Branches
 - mvvm
